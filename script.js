@@ -48,3 +48,10 @@ function playRound(playerSelection, computerSelection = getComputerChoice().toLo
             return "Invalid input!"
     }
 }
+
+function game() {
+    for(i = 0; i < 5; i++) {
+        playerChoice = prompt("Your choice(Rock, Paper, Scissors)?");
+        console.log(playRound(playerChoice));
+    }
+}
