@@ -18,12 +18,12 @@ function playSingleRound(playerSelection, computerSelection = getComputerChoice(
     // Draw: 0 
     let result = (playerSelection) => {
         let choice_values = {
-            "Rock": 1,
-            "Paper": 2,
-            "Scissors": 3
+            "rock": 1,
+            "paper": 2,
+            "scissors": 3
         };
 
-        sum = choice_values(playerSelection) - choice_values[computerSelection];
+        sum = choice_values[playerSelection] - choice_values[computerSelection];
 
         switch(sum) {
             case 0:
