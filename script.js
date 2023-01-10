@@ -33,7 +33,7 @@ function playSingleRound(playerSelection, computerSelection = getComputerChoice(
                 return `You Win! ${playerSelection} beats ${computerSelection}`;
             case -1:
             case 2:
-                return `You Win! ${playerSelection} beats ${computerSelection}`;
+                return `You Lose! ${playerSelection} beats ${computerSelection}`;
         }
     };
 
