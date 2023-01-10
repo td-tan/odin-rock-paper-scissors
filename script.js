@@ -30,10 +30,10 @@ function playRound(playerSelection, computerSelection = getComputerChoice().toLo
                 return "Draw!";
             case -2:
             case 1:
-                return `You Win! ${playerSelection} beats ${computerSelection}`;
+                return `You Win! ${playerSelection[0].toUpperCase()+playerSelection.slice(1)} beats ${computerSelection[0].toUpperCase()+computerSelection.slice(1)}`;
             case -1:
             case 2:
-                return `You Lose! ${playerSelection} beats ${computerSelection}`;
+                return `You Lose! ${playerSelection[0].toUpperCase()+playerSelection.slice(1)} beats ${computerSelection[0].toUpperCase()+computerSelection.slice(1)}`;
         }
     };
 
