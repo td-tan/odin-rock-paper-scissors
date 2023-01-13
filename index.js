@@ -55,3 +55,25 @@ function game() {
         console.log(playRound(playerChoice));
     }
 }
+
+
+function runTests() {
+
+    const testGetComputerChoice = () => {
+        let hitChoices = {
+            'Rock': 0,
+            'Paper': 0,
+            'Scissors': 0
+        };
+        for (let i = 0; i < 100; i++) {
+            const randomChoice = getComputerChoice();
+            
+            hitChoices[randomChoice]++;
+        }
+        console.log(hitChoices);
+        console.assert(hitChoices.Rock !== 0 || hitChoices.Paper !== 0 || hitChoices.Scissors !== 0, "Test random choices");
+    }
+
+
+    testGetComputerChoice();
+}
