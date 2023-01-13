@@ -55,5 +55,3 @@ function game() {
         console.log(playRound(playerChoice));
     }
 }
-
-module.exports = playRound;
