@@ -10,8 +10,7 @@ function getComputerChoice() {
     return choices[Math.floor(Math.random() * 3)];
 }
 
-function playRound(playerSelection, computerSelection = getComputerChoice()) {
-    computerSelection = computerSelection.toLowerCase();
+function playRound(playerSelection, computerSelection = getComputerChoice().toLowerCase()) {
 
     // Use simple math to determine the win conditions
     // Wins: -2, 1, 1
