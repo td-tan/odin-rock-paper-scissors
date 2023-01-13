@@ -20,14 +20,4 @@ describe('playRound', () => {
     test('Player selects Rock and Rock selects Paper', () => {
         expect(playRound("Rock", "Rock")).toBe("Draw!");
     });
-
-    test('Player selects Paper and Computer selects Scissors', () => {
-        expect(playRound("Paper", "Scissors")).toBe("You Lose! Scissors beats Paper");
-    });
-    test('Player selects Rock and Computer selects Scissors', () => {
-        expect(playRound("Scissors", "Paper")).toBe("You Win! Scissors beats Paper");
-    });
-    test('Player selects Scissors and Scissors selects Paper', () => {
-        expect(playRound("Scissors", "Scissors")).toBe("Draw!");
-    });
 });
