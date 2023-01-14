@@ -23,16 +23,27 @@ const game = {
     }
 };
 
-function display(result) {
+function display(player, cpu, result) {
     const output = document.querySelector('div#results');
-    output.textContent = result;
+    const prettifyText = (result) => {
+        player = player.toUpperCase();
+        cpu = cpu.toUpperCase();
+        switch(result) {
+            case -1: return `You Lose! ${cpu} beats ${player}`; 
+            case 0 : return `Draw!`;
+            case 1 : return `You Win! ${player} beats ${cpu}`; 
+        }
+    }
+
+    output.textContent = prettifyText(result);
 }
 
 function getResult(e) {
     const playerChoice = e.target.id;
-    const result = game.playRound(playerChoice);
+    const cpu = game.getComputerChoice();
+    const result = game.playRound(playerChoice, cpu);
     
-    display(result);
+    display(playerChoice, cpu, result);
 }
 
 const selects = document.querySelectorAll('div.player');
