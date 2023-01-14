@@ -32,6 +32,10 @@ div.player:hover {
     box-shadow: 10px 5px 5px darkslategray;
 }
 
+div#results {
+    font-family: 'Permanent Marker', cursive;
+}
+
 div {
     flex: 1;
     border-style: solid;
