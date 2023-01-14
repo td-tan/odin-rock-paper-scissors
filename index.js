@@ -1,45 +1,27 @@
-
-// Computer will choose a random choice
-function getComputerChoice() {
-    let choices = [
-        "rock",
-        "paper",
-        "scissors"
-    ];
-
-    return choices[Math.floor(Math.random() * 3)];
-}
-
-function playRound(playerSelection, computerSelection = getComputerChoice()) {
-
-    // Use simple math to determine the win conditions
-    // Wins: -2, 1, 1
-    // Lose: -1, -1, 2
-    // Draw: 0 
-    let result = (playerSelection) => {
-        let choice_values = {
-            "rock": 1,
-            "paper": 2,
-            "scissors": 3
-        };
-
-        sum = choice_values[playerSelection] - choice_values[computerSelection];
-
-        switch(sum) {
-            case 0:
-                return "Draw!";
-            case -2:
-            case 1:
-                return `You Win! ${playerSelection[0].toUpperCase()+playerSelection.slice(1)} beats ${computerSelection[0].toUpperCase()+computerSelection.slice(1)}`;
-            case -1:
-            case 2:
-                return `You Lose! ${computerSelection[0].toUpperCase()+computerSelection.slice(1)} beats ${playerSelection[0].toUpperCase()+playerSelection.slice(1)}`;
-        }
-    };
-
-    return result(playerSelection.toLowerCase());
-}
-
+const game = {
+    rock: {
+        rock: 0,
+        scissors: 1,
+        paper: -1,
+    },
+    paper: {
+        paper: 0,
+        rock: 1,
+        scissors: -1,
+    },
+    scissors: {
+        scissors: 0,
+        paper: 1,
+        rock: -1,
+    },
+    getComputerChoice: function () {
+        const choices = Object.keys(this);
+        return choices[Math.floor(Math.random() * 3)];
+    },
+    playRound: function (playerSelection, cpu = this.getComputerChoice()) {
+        return this[`${playerSelection.toLowerCase()}`][`${cpu}`];
+    }
+};
 
 
 function runTests() {
@@ -87,7 +69,7 @@ function display(result) {
 
 function getResult(e) {
     const playerChoice = e.target.textContent;
-    const result = playRound(playerChoice);
+    const result = game.playRound(playerChoice);
 
     display(result);
 }
