@@ -1,97 +1,88 @@
+const game = {
+    rock: {
+        rock: 0,
+        scissors: 1,
+        paper: -1,
+    },
+    paper: {
+        paper: 0,
+        rock: 1,
+        scissors: -1,
+    },
+    scissors: {
+        scissors: 0,
+        paper: 1,
+        rock: -1,
+    },
+    rounds: 5,
+    playerWins: 0,
+    playerDraws: 0,
+    playerLoses: 0,
+    getComputerChoice: function () {
+        const choices = Object.keys(this);
+        return choices[Math.floor(Math.random() * 3)];
+    },
+    playRound: function (playerSelection, cpu = this.getComputerChoice()) {
+        return this[`${playerSelection.toLowerCase()}`][`${cpu}`];
+    }
+};
 
-// Computer will choose a random choice
-function getComputerChoice() {
-    let choices = [
-        "Rock",
-        "Paper",
-        "Scissors"
-    ];
+function display(player, cpu, result) {
+    const output = document.querySelector('div#results');
 
-    return choices[Math.floor(Math.random() * 3)];
-}
+    if (game.rounds == 0) {
+        const board = document.querySelector('div.container');
+        board.childNodes.forEach((card) => {
+            card.hidden = true;
+        });
 
-function playRound(playerSelection, computerSelection = getComputerChoice()) {
-    computerSelection = computerSelection.toLowerCase();
-
-    // Use simple math to determine the win conditions
-    // Wins: -2, 1, 1
-    // Lose: -1, -1, 2
-    // Draw: 0 
-    let result = (playerSelection) => {
-        let choice_values = {
-            "rock": 1,
-            "paper": 2,
-            "scissors": 3
+        if(game.playerWins > game.playerLoses) {
+            output.textContent = 'Congratulations! You won against a bot in 5 Rounds';
+        } else if (game.playerWins === game.playerLoses) {
+            output.textContent = 'Congratulations! That is a draw';
+        } else {
+            output.textContent = 'Go back to training! You are losing against a bot';
+        }
+        
+        const resetGame = () => {
+            game.rounds = 5;
+            board.childNodes.forEach((card) => {
+                card.hidden = false;
+            });
         };
 
-        sum = choice_values[playerSelection] - choice_values[computerSelection];
-
-        switch(sum) {
-            case 0:
-                return "Draw!";
-            case -2:
-            case 1:
-                return `You Win! ${playerSelection[0].toUpperCase()+playerSelection.slice(1)} beats ${computerSelection[0].toUpperCase()+computerSelection.slice(1)}`;
-            case -1:
-            case 2:
-                return `You Lose! ${computerSelection[0].toUpperCase()+computerSelection.slice(1)} beats ${playerSelection[0].toUpperCase()+playerSelection.slice(1)}`;
-        }
-    };
-
-    switch(playerSelection.toLowerCase()) {
-        case "rock":
-            return result("rock");
-        case "paper":
-            return result("paper");
-        case "scissors":
-            return result("scissors");
-        default:
-            return "Invalid input!"
+        setTimeout(resetGame, 3000);
     }
-}
 
-function game() {
-    for(i = 0; i < 5; i++) {
-        playerChoice = prompt("Your choice(Rock, Paper, Scissors)?");
-        console.log(playRound(playerChoice));
-    }
-}
-
-
-function runTests() {
-
-    const testGetComputerChoice = () => {
-        const testcase = 'testGetComputerChoice';
-        let hitChoices = {
-            'Rock': 0,
-            'Paper': 0,
-            'Scissors': 0
-        };
-        for (let i = 0; i < 100; i++) {
-            const randomChoice = getComputerChoice();
-            
-            hitChoices[randomChoice]++;
+    const prettifyText = (result) => {
+        player = player.toUpperCase();
+        cpu = cpu.toUpperCase();
+        switch(result) {
+            case -1: 
+                game.playerLoses++;
+                return `You Lose! ${cpu} beats ${player}`; 
+            case 0 : 
+                game.playerDraws++;
+                return `Draw!`;
+            case 1 : 
+                game.playerWins++;
+                return `You Win! ${player} beats ${cpu}`; 
         }
-        console.log(hitChoices);
-        console.assert(hitChoices.Rock !== 0 || hitChoices.Paper !== 0 || hitChoices.Scissors !== 0, `${testcase} => Test random choices`);
-    };
-
-    const testplayRound = () => {
-        const testcase = 'testplayRound';
-        console.assert(playRound('Rock', 'Scissors') === 'You Win! Rock beats Scissors', `${testcase} => Test Player Win`);
-        console.assert(playRound('Paper', 'Rock') === 'You Win! Paper beats Rock', `${testcase} => Test Player Win`);
-        console.assert(playRound('Scissors', 'Paper') === 'You Win! Scissors beats Paper', `${testcase} => Test Player Win`);
-
-        console.assert(playRound('Scissors', 'Rock') === 'You Lose! Rock beats Scissors', `${testcase} => Test Player Lose`);
-        console.assert(playRound('Rock', 'Paper') === 'You Lose! Paper beats Rock', `${testcase} => Test Player Lose`);
-        console.assert(playRound('Paper', 'Scissors') === 'You Lose! Scissors beats Paper', `${testcase} => Test Player Lose`);
-
-        console.assert(playRound('Rock', 'Rock') === 'Draw!', `${testcase} => Test Draw`);
-        console.assert(playRound('Paper', 'Paper') === 'Draw!', `${testcase} => Test Draw`);
-        console.assert(playRound('Scissors', 'Scissors') === 'Draw!', `${testcase} => Test Draw`);
-    };
-
-
-    testGetComputerChoice();
-    testplayRound();
+    }
+    output.textContent = prettifyText(result);
 }
+
+function getResult(e) {
+    const playerChoice = e.target.id;
+    const cpu = game.getComputerChoice();
+    const result = game.playRound(playerChoice, cpu);
+    game.rounds--;
+
+    display(playerChoice, cpu, result);
+}
+
+const selects = document.querySelectorAll('div.player');
+
+selects.forEach((choice) => {
+    choice.addEventListener('click', getResult);
+});
