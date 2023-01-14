@@ -1,4 +1,8 @@
 const game = {
+    rounds: 5,
+    playerWins: 0,
+    playerDraws: 0,
+    playerLoses: 0,
     rock: {
         rock: 0,
         scissors: 1,
@@ -29,9 +33,15 @@ function display(player, cpu, result) {
         player = player.toUpperCase();
         cpu = cpu.toUpperCase();
         switch(result) {
-            case -1: return `You Lose! ${cpu} beats ${player}`; 
-            case 0 : return `Draw!`;
-            case 1 : return `You Win! ${player} beats ${cpu}`; 
+            case -1: 
+                game.playerLoses++;
+                return `You Lose! ${cpu} beats ${player}`; 
+            case 0 : 
+                game.playerDraws++;
+                return `Draw!`;
+            case 1 : 
+                game.playerWins++;
+                return `You Win! ${player} beats ${cpu}`; 
         }
     }
 
@@ -42,7 +52,7 @@ function getResult(e) {
     const playerChoice = e.target.id;
     const cpu = game.getComputerChoice();
     const result = game.playRound(playerChoice, cpu);
-    
+
     display(playerChoice, cpu, result);
 }
 
