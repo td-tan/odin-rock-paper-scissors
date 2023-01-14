@@ -94,7 +94,10 @@ const buttons = document.querySelectorAll('button');
 
 buttons.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-        playerChoice = e.target.textContent;
-        console.log(playRound(playerChoice));
+        const playerChoice = e.target.textContent;
+        const result = playRound(playerChoice);
+
+        const output = document.querySelector('div#results');
+        output.textContent = result;
     });
 });
