@@ -1,0 +1,19 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+div {
+    border-style: solid;
+    border-color: red;
+    min-width: 500px;
+    min-height: 250px;
+}
