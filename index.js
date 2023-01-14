@@ -37,16 +37,7 @@ function playRound(playerSelection, computerSelection = getComputerChoice()) {
         }
     };
 
-    switch(playerSelection.toLowerCase()) {
-        case "rock":
-            return result("rock");
-        case "paper":
-            return result("paper");
-        case "scissors":
-            return result("scissors");
-        default:
-            return "Invalid input!"
-    }
+    return result(playerSelection.toLowerCase());
 }
 
 
