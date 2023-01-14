@@ -1,8 +1,4 @@
 const game = {
-    rounds: 5,
-    playerWins: 0,
-    playerDraws: 0,
-    playerLoses: 0,
     rock: {
         rock: 0,
         scissors: 1,
@@ -18,6 +14,10 @@ const game = {
         paper: 1,
         rock: -1,
     },
+    rounds: 5,
+    playerWins: 0,
+    playerDraws: 0,
+    playerLoses: 0,
     getComputerChoice: function () {
         const choices = Object.keys(this);
         return choices[Math.floor(Math.random() * 3)];
@@ -28,6 +28,16 @@ const game = {
 };
 
 function display(player, cpu, result) {
+    if (game.rounds == 0) {
+        const board = document.querySelector('div.container');
+        board.childNodes.forEach((card) => {
+            card.hidden = true;
+        });
+        // Reset Game
+        game.rounds = 5;
+        board.textContent = "BOOM!";
+    }
+
     const output = document.querySelector('div#results');
     const prettifyText = (result) => {
         player = player.toUpperCase();
@@ -44,7 +54,6 @@ function display(player, cpu, result) {
                 return `You Win! ${player} beats ${cpu}`; 
         }
     }
-
     output.textContent = prettifyText(result);
 }
 
@@ -52,6 +61,7 @@ function getResult(e) {
     const playerChoice = e.target.id;
     const cpu = game.getComputerChoice();
     const result = game.playRound(playerChoice, cpu);
+    game.rounds--;
 
     display(playerChoice, cpu, result);
 }
