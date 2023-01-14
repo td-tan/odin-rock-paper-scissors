@@ -90,12 +90,16 @@ function runTests() {
     testplayRound();
 }
 
+function display(result) {
+    const output = document.querySelector('div#results');
+    output.textContent = result;
+}
+
 function getResult(e) {
     const playerChoice = e.target.textContent;
     const result = playRound(playerChoice);
 
-    const output = document.querySelector('div#results');
-    output.textContent = result;
+    display(result);
 }
 
 const buttons = document.querySelectorAll('button');
