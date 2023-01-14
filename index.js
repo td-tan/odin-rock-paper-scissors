@@ -29,14 +29,14 @@ function display(result) {
 }
 
 function getResult(e) {
-    const playerChoice = e.target.textContent;
+    const playerChoice = e.target.id;
     const result = game.playRound(playerChoice);
-
+    
     display(result);
 }
 
-const buttons = document.querySelectorAll('button');
+const selects = document.querySelectorAll('div.player');
 
-buttons.forEach((btn) => {
-    btn.addEventListener('click', getResult);
+selects.forEach((choice) => {
+    choice.addEventListener('click', getResult);
 });
