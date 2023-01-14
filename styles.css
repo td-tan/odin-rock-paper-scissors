@@ -1,4 +1,6 @@
 body {
+    background-color: aliceblue;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,6 +9,7 @@ body {
 }
 
 .container {
+    background-color: white;
     min-width: 50%;
     display: flex;
     justify-content: space-evenly;
@@ -14,8 +17,10 @@ body {
 }
 
 div.player {
+    background-color:beige;
     margin: 20px;
     padding-top: 80px;
+    border-radius: 16px;
 }
 
 div {
