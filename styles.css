@@ -7,13 +7,21 @@ body {
 }
 
 .container {
+    min-width: 50%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    margin: 200px;
+}
+
+div.player {
+    margin: 20px;
+    padding-top: 80px;
 }
 
 div {
+    flex: 1;
     border-style: solid;
     border-color: red;
-    min-width: 500px;
-    min-height: 250px;
+    min-width: 100px;
+    min-height: 100px;
 }
