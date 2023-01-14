@@ -90,14 +90,16 @@ function runTests() {
     testplayRound();
 }
 
+function getResult(e) {
+    const playerChoice = e.target.textContent;
+    const result = playRound(playerChoice);
+
+    const output = document.querySelector('div#results');
+    output.textContent = result;
+}
+
 const buttons = document.querySelectorAll('button');
 
 buttons.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-        const playerChoice = e.target.textContent;
-        const result = playRound(playerChoice);
-
-        const output = document.querySelector('div#results');
-        output.textContent = result;
-    });
+    btn.addEventListener('click', getResult);
 });
