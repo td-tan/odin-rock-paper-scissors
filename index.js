@@ -58,6 +58,13 @@ function display(player, cpu, result) {
     const prettifyText = (result) => {
         player = player.toUpperCase();
         cpu = cpu.toUpperCase();
+
+        const playerChoice = document.querySelector('div#playerChoice');
+        const cpuChoice = document.querySelector('div#cpuChoice');
+
+        playerChoice.textContent = player;
+        cpuChoice.textContent = cpu;
+
         switch(result) {
             case -1: 
                 game.cpuPoints++;
