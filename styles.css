@@ -152,6 +152,16 @@ div#results {
     background-color: white;
 }
 
+footer {
+    display: flex;
+    flex-direction: column;
+}
+
+footer a.profiles {
+    display: flex;
+    justify-content: center;
+}
+
 #github-profile {
     height: 64px;
     width: 64px;
