@@ -1,6 +1,8 @@
-body {
-    background-color: aliceblue;
+* {
+    font-family: 'Permanent Marker', cursive;
+}
 
+body {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,38 +10,164 @@ body {
     gap: 50px;
 }
 
+header {
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+    margin-top: 50px;
+}
+
+header div#welcome{
+    font-size: xx-large;
+}
+
+header div#options {
+    display: flex;
+    gap: 50px;
+}
+
+header div#color-picker {
+    min-width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+header div#white {
+    background-color: white;
+    height: 20px;
+    width: 20px;
+}
+
+header div#black {
+    background-color: black;
+    height: 20px;
+    width: 20px;
+}
+
+header div#red {
+    background-color: red;
+    height: 20px;
+    width: 20px;
+}
+
+header div#blue {
+    background-color: blue;
+    height: 20px;
+    width: 20px;
+}
+
+header div#green {
+    background-color: green;
+    height: 20px;
+    width: 20px;
+}
+
+.white{
+    color: white;
+}
+
+.black {
+    color: black;
+}
+
+.red {
+    color: red;
+}
+
+.blue {
+    color: blue;
+}
+
+.green {
+    color: green;
+}
+
+.color,
+.mode {
+    cursor:pointer
+}
+
+main div#board {
+    font-weight: bolder;
+    font-size: 80px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+
+main div#player {
+    min-width: 500px;
+    display: flex;
+    justify-content: space-around;
+}
+
+main div#cpu {
+    min-width: 500px;
+    display: flex;
+    justify-content: space-around;
+}
 .container {
     background-color: white;
     min-width: 50%;
     display: flex;
     justify-content: space-evenly;
-    margin: 200px;
+    margin-top: 100px;
 }
 
 div.player {
-    font-family: 'Permanent Marker', cursive;
+    min-height: 200px;
+    min-width: 200px;
     font-size: xx-large;
-    color: darkcyan;
-    background-color:beige;
     text-align: center;
     margin: 20px;
-    padding-top: 80px;
-    padding-bottom: 40px;
-    border-radius: 16px;
+    border-radius: 22px;
+    border-style: solid;
+    border-width: 5px;
 }
 
 div.player:hover {
-    box-shadow: 10px 5px 5px darkslategray;
+    cursor: pointer;
+    border-color: white;
+}
+
+div.button#reset {
+    text-align: center;
+    margin-top: 25px;
+    font-size: xx-large;
+}
+
+div.button#reset:hover {
+    cursor: pointer;
 }
 
 div#results {
-    font-family: 'Permanent Marker', cursive;
+    text-align: center;
 }
 
-div {
-    flex: 1;
-    border-style: solid;
-    border-color: red;
-    min-width: 100px;
-    min-height: 100px;
+.night-mode {
+    background-color: black;
+}
+
+.light-mode {
+    background-color: white;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+}
+
+footer a.profiles {
+    display: flex;
+    justify-content: center;
+}
+
+#github-profile {
+    height: 64px;
+    width: 64px;
+}
+
+.attributions {
+    display: flex;
+    flex-direction: column;
 }
