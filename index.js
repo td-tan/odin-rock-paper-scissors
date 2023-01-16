@@ -27,9 +27,24 @@ const game = {
 };
 
 function resetGame() {
+    const playerChoice = document.querySelector('div#playerChoice');
+    const cpuChoice = document.querySelector('div#cpuChoice');
+    
+    const playerPoints = document.querySelector('div#playerPoints');
+    const cpuPoints = document.querySelector('div#cpuPoints');
+
+    const output = document.querySelector('div#results');
+
     game.rounds = 5;
     game.cpuPoints = 0;
     game.playerPoints = 0;
+
+    cpuPoints.textContent = '0';
+    playerPoints.textContent = '0';
+    playerChoice.textContent = '?';
+    cpuChoice.textContent = '?';
+
+    output.textContent = '';
 }
 
 function display(player, cpu, result) {
@@ -49,11 +64,6 @@ function display(player, cpu, result) {
         } else {
             output.textContent = 'Go back to training! You are losing against a bot';
         }
-
-        cpuPoints.textContent = '0';
-        playerPoints.textContent = '0';
-        playerChoice.textContent = '?';
-        cpuChoice.textContent = '?';
 
         resetGame();
         return;
