@@ -1,6 +1,4 @@
 body {
-    background-color: aliceblue;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,8 +22,6 @@ header {
 div.player {
     font-family: 'Permanent Marker', cursive;
     font-size: xx-large;
-    color: darkcyan;
-    background-color:beige;
     text-align: center;
     margin: 20px;
     padding-top: 80px;
