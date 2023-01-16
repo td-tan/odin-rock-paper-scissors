@@ -56,6 +56,25 @@ header div#green {
     width: 20px;
 }
 
+main div#board {
+    font-weight: bolder;
+    font-size: 80px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+
+main div#player {
+    min-width: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+
+main div#cpu {
+    min-width: 500px;
+    display: flex;
+    justify-content: space-between;
+}
 .container {
     background-color: white;
     min-width: 50%;
