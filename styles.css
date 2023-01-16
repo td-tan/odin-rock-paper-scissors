@@ -1,3 +1,7 @@
+* {
+    font-family: 'Permanent Marker', cursive;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -20,27 +24,16 @@ header {
 }
 
 div.player {
-    font-family: 'Permanent Marker', cursive;
+    min-height: 200px;
+    min-width: 200px;
     font-size: xx-large;
     text-align: center;
     margin: 20px;
-    padding-top: 80px;
-    padding-bottom: 40px;
-    border-radius: 16px;
+    border-radius: 22px;
+    border-style: solid;
+    border-width: 5px;
 }
 
 div.player:hover {
     box-shadow: 10px 5px 5px darkslategray;
-}
-
-div#results {
-    font-family: 'Permanent Marker', cursive;
-}
-
-div {
-    flex: 1;
-    border-style: solid;
-    border-color: red;
-    min-width: 100px;
-    min-height: 100px;
 }
