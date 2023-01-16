@@ -80,7 +80,7 @@ main div#cpu {
     min-width: 50%;
     display: flex;
     justify-content: space-evenly;
-    margin: 200px;
+    margin-top: 100px;
 }
 
 div.player {
@@ -96,4 +96,14 @@ div.player {
 
 div.player:hover {
     border-color: white;
+}
+
+div.button#reset {
+    text-align: center;
+    margin-top: 25px;
+    font-size: xx-large;
+}
+
+div.button#reset:hover {
+    cursor: pointer;
 }
