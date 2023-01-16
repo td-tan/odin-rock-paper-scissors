@@ -42,6 +42,8 @@ function display(player, cpu, result) {
         
         const resetGame = () => {
             game.rounds = 5;
+            game.cpuPoints = 0;
+            game.playerPoints = 0;
         };
 
         setTimeout(resetGame, 3000);
