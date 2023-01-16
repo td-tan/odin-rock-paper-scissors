@@ -62,6 +62,26 @@ header div#green {
     width: 20px;
 }
 
+.white{
+    color: white;
+}
+
+.black {
+    color: black;
+}
+
+.red {
+    color: red;
+}
+
+.blue {
+    color: blue;
+}
+
+.green {
+    color: green;
+}
+
 .color,
 .mode {
     cursor:pointer
@@ -126,10 +146,8 @@ div#results {
 
 .night-mode {
     background-color: black;
-    color: white;
 }
 
 .light-mode {
     background-color: white;
-    color: black;
 }

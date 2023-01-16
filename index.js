@@ -105,8 +105,11 @@ function getResult(e) {
 function chooseColor(e) {
     const color = e.target.id;
 
-    const all = document.querySelector('*');
-    all.style.color = color;
+    const body = document.querySelector('body');
+    if (body.classList.length > 1 && (body.classList.contains('light-mode') || body.classList.contains('night-mode'))) {
+        body.className = body.classList[0];
+    }
+    body.classList.add(color);
 }
 
 function changeMode(e) {
@@ -118,8 +121,9 @@ function changeMode(e) {
         const body = document.querySelector('body');
         const colorBlack = document.querySelector('div.color#black');
 
-        body.classList.remove('light-mode');
+        body.className = '';
         body.classList.add('night-mode');
+        body.classList.add('white');
         colorBlack.setAttribute('id', 'white');
     } else {
         e.target.parentNode.classList.remove('light');
@@ -129,8 +133,9 @@ function changeMode(e) {
         const body = document.querySelector('body');
         const colorWhite = document.querySelector('div.color#white');
 
-        body.classList.remove('night-mode');
+        body.className = '';
         body.classList.add('light-mode');
+        body.classList.add('black');
         colorWhite.setAttribute('id', 'black');
     }
 }
