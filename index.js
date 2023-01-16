@@ -32,11 +32,6 @@ function display(player, cpu, result) {
     const output = document.querySelector('div#results');
 
     if (game.rounds == 0) {
-        const board = document.querySelector('div.container');
-        board.childNodes.forEach((card) => {
-            card.hidden = true;
-        });
-
         if(game.playerWins > game.playerLoses) {
             output.textContent = 'Congratulations! You won against a bot in 5 Rounds';
         } else if (game.playerWins === game.playerLoses) {
@@ -47,9 +42,6 @@ function display(player, cpu, result) {
         
         const resetGame = () => {
             game.rounds = 5;
-            board.childNodes.forEach((card) => {
-                card.hidden = false;
-            });
         };
 
         setTimeout(resetGame, 3000);
