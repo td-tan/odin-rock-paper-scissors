@@ -110,14 +110,28 @@ function chooseColor(e) {
 }
 
 function changeMode(e) {
-    if (e.target.classList.contains('night')) {
-        e.target.classList.remove('night');
-        e.target.classList.add('light');
+    if (e.target.parentNode.classList.contains('night')) {
+        e.target.parentNode.classList.remove('night');
+        e.target.parentNode.classList.add('light');
         e.target.src = 'resources/brightness.png';
+
+        const body = document.querySelector('body');
+        const colorBlack = document.querySelector('div.color#black');
+
+        body.classList.remove('light-mode');
+        body.classList.add('night-mode');
+        colorBlack.setAttribute('id', 'white');
     } else {
-        e.target.classList.remove('light');
-        e.target.classList.add('night');
+        e.target.parentNode.classList.remove('light');
+        e.target.parentNode.classList.add('night');
         e.target.src = 'resources/moon.png';
+
+        const body = document.querySelector('body');
+        const colorWhite = document.querySelector('div.color#white');
+
+        body.classList.remove('night-mode');
+        body.classList.add('light-mode');
+        colorWhite.setAttribute('id', 'black');
     }
 }
 
