@@ -15,9 +15,8 @@ const game = {
         rock: -1,
     },
     rounds: 5,
-    playerWins: 0,
-    playerDraws: 0,
-    playerLoses: 0,
+    playerPoints: 0,
+    cpuPoints: 0,
     getComputerChoice: function () {
         const choices = Object.keys(this);
         return choices[Math.floor(Math.random() * 3)];
@@ -28,6 +27,8 @@ const game = {
 };
 
 function display(player, cpu, result) {
+    const playerPoints = document.querySelector('div#playerPoints');
+    const cpuPoints = document.querySelector('div#cpuPoints');
     const output = document.querySelector('div#results');
 
     if (game.rounds == 0) {
@@ -59,17 +60,20 @@ function display(player, cpu, result) {
         cpu = cpu.toUpperCase();
         switch(result) {
             case -1: 
-                game.playerLoses++;
+                game.cpuPoints++;
+                cpuPoints.textContent = game.cpuPoints;
                 return `You Lose! ${cpu} beats ${player}`; 
             case 0 : 
-                game.playerDraws++;
                 return `Draw!`;
             case 1 : 
-                game.playerWins++;
+                game.playerPoints++;
+                playerPoints.textContent = game.playerPoints;
                 return `You Win! ${player} beats ${cpu}`; 
         }
     }
+
     output.textContent = prettifyText(result);
+
 }
 
 function getResult(e) {
