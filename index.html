@@ -10,13 +10,45 @@
     <link rel="stylesheet" href="styles.css">
     <title>Rock Paper Scissors Game</title>
 </head>
-<body>
-    <div class="container">
-        <div id="rock" class="player">ROCK</div>
-        <div id="paper" class="player">PAPER</div>
-        <div id="scissors" class="player">SCISSORS</div>
-    </div>
-    <div id="results"></div>
+<body class="light-mode">
+    <header>
+        <div id="welcome">Man VS Machine</div>
+        <div id="options">
+            <div class="mode night"><img src="resources/moon.png"></div>
+            <div id="color-picker">
+                <div class="color" id="black"></div>
+                <div class="color" id="red"></div>
+                <div class="color" id="blue"></div>
+                <div class="color" id="green"></div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="board">
+            <div id="player">
+                <div id="playerPoints">0</div>
+                <div id="playerChoice">?</div>
+            </div>
+            <div id="cpu">
+                <div id="cpuChoice">?</div>
+                <div id="cpuPoints">0</div>
+            </div>
+        </div>
+        <div id="results"></div>
+        <div class="container light-mode">
+            <div id="rock" class="player">ROCK</div>
+            <div id="paper" class="player">PAPER</div>
+            <div id="scissors" class="player">SCISSORS</div>
+        </div>
+        <div class="button" id="reset">Reset</div>
+    </main>
+    <footer>
+        <a class="profiles" href="https://github.com/td-tan/odin-rock-paper-scissors"><img id="github-profile" src="resources/github-mark.png" alt="Github Profile"></a>
+        <div class="attributions">
+            <a href="https://www.flaticon.com/free-icons/dark-mode" title="dark mode icons">Dark mode icons created by Creatype - Flaticon</a>
+            <a href="https://www.flaticon.com/free-icons/light-mode" title="light mode icons">Light mode icons created by bsd - Flaticon</a>
+        </div>
+    </footer>
     <script src="index.js"></script>
 </body>
 </html>
