@@ -8,6 +8,11 @@ body {
     gap: 50px;
 }
 
+header {
+    display: flex;
+    
+}
+
 .container {
     background-color: white;
     min-width: 50%;
