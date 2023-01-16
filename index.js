@@ -109,9 +109,22 @@ function chooseColor(e) {
     all.style.color = color;
 }
 
+function changeMode(e) {
+    if (e.target.classList.contains('night')) {
+        e.target.classList.remove('night');
+        e.target.classList.add('light');
+        e.target.src = 'resources/brightness.png';
+    } else {
+        e.target.classList.remove('light');
+        e.target.classList.add('night');
+        e.target.src = 'resources/moon.png';
+    }
+}
+
 const selects = document.querySelectorAll('div.player');
 const resetBtn = document.querySelector('div.button#reset');
 const colors = document.querySelectorAll('div.color');
+const mode = document.querySelector('div.mode');
 
 colors.forEach((color) => {
     color.addEventListener('click', chooseColor);
@@ -120,5 +133,7 @@ colors.forEach((color) => {
 selects.forEach((choice) => {
     choice.addEventListener('click', getResult);
 });
+
+mode.addEventListener('click', changeMode);
 
 resetBtn.addEventListener('click', resetGame);
