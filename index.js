@@ -56,6 +56,7 @@ function display(player, cpu, result) {
         cpuChoice.textContent = '?';
 
         resetGame();
+        return;
     }
 
     const prettifyText = (result) => {
@@ -80,14 +81,13 @@ function display(player, cpu, result) {
     }
 
     output.textContent = prettifyText(result);
-
+    game.rounds--;
 }
 
 function getResult(e) {
     const playerChoice = e.target.id;
     const cpu = game.getComputerChoice();
     const result = game.playRound(playerChoice, cpu);
-    game.rounds--;
 
     display(playerChoice, cpu, result);
 }
