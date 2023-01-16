@@ -119,8 +119,11 @@ function changeMode(e) {
         e.target.src = 'resources/brightness.png';
 
         const body = document.querySelector('body');
+        const container = document.querySelector('div.container');
         const colorBlack = document.querySelector('div.color#black');
 
+        container.classList.remove('light-mode');
+        container.classList.add('night-mode');
         body.className = '';
         body.classList.add('night-mode');
         body.classList.add('white');
@@ -131,8 +134,11 @@ function changeMode(e) {
         e.target.src = 'resources/moon.png';
 
         const body = document.querySelector('body');
+        const container = document.querySelector('div.container');
         const colorWhite = document.querySelector('div.color#white');
 
+        container.classList.remove('night-mode');
+        container.classList.add('light-mode');
         body.className = '';
         body.classList.add('light-mode');
         body.classList.add('black');
