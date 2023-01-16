@@ -26,35 +26,41 @@ const game = {
     }
 };
 
+function resetGame() {
+    game.rounds = 5;
+    game.cpuPoints = 0;
+    game.playerPoints = 0;
+}
+
 function display(player, cpu, result) {
+    const playerChoice = document.querySelector('div#playerChoice');
+    const cpuChoice = document.querySelector('div#cpuChoice');
+    
     const playerPoints = document.querySelector('div#playerPoints');
     const cpuPoints = document.querySelector('div#cpuPoints');
+
     const output = document.querySelector('div#results');
 
     if (game.rounds == 0) {
-        if(game.playerWins > game.playerLoses) {
+        if(game.playerPoints > game.cpuPoints) {
             output.textContent = 'Congratulations! You won against a bot in 5 Rounds';
-        } else if (game.playerWins === game.playerLoses) {
+        } else if (game.playerPoints === game.cpuPoints) {
             output.textContent = 'Congratulations! That is a draw';
         } else {
             output.textContent = 'Go back to training! You are losing against a bot';
         }
-        
-        const resetGame = () => {
-            game.rounds = 5;
-            game.cpuPoints = 0;
-            game.playerPoints = 0;
-        };
 
-        setTimeout(resetGame, 3000);
+        cpuPoints.textContent = '0';
+        playerPoints.textContent = '0';
+        playerChoice.textContent = '?';
+        cpuChoice.textContent = '?';
+
+        resetGame();
     }
 
     const prettifyText = (result) => {
         player = player.toUpperCase();
         cpu = cpu.toUpperCase();
-
-        const playerChoice = document.querySelector('div#playerChoice');
-        const cpuChoice = document.querySelector('div#cpuChoice');
 
         playerChoice.textContent = player;
         cpuChoice.textContent = cpu;
@@ -87,7 +93,10 @@ function getResult(e) {
 }
 
 const selects = document.querySelectorAll('div.player');
+const resetBtn = document.querySelector('div.button#reset');
 
 selects.forEach((choice) => {
     choice.addEventListener('click', getResult);
 });
+
+resetBtn.addEventListener('click', resetGame);
