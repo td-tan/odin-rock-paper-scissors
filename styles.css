@@ -156,3 +156,8 @@ div#results {
     height: 64px;
     width: 64px;
 }
+
+.attributions {
+    display: flex;
+    flex-direction: column;
+}
