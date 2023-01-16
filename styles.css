@@ -151,3 +151,8 @@ div#results {
 .light-mode {
     background-color: white;
 }
+
+#github-profile {
+    height: 64px;
+    width: 64px;
+}
