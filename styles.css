@@ -107,3 +107,7 @@ div.button#reset {
 div.button#reset:hover {
     cursor: pointer;
 }
+
+div#results {
+    text-align: center;
+}
