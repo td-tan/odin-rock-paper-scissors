@@ -121,6 +121,9 @@ function changeMode(e) {
         const body = document.querySelector('body');
         const container = document.querySelector('div.container');
         const colorBlack = document.querySelector('div.color#black');
+        const githubIcon = document.querySelector('img#github-profile');
+
+        githubIcon.src = 'resources/github-mark-white.png';
 
         container.classList.remove('light-mode');
         container.classList.add('night-mode');
@@ -136,6 +139,9 @@ function changeMode(e) {
         const body = document.querySelector('body');
         const container = document.querySelector('div.container');
         const colorWhite = document.querySelector('div.color#white');
+        const githubIcon = document.querySelector('img#github-profile');
+
+        githubIcon.src = 'resources/github-mark.png';
 
         container.classList.remove('night-mode');
         container.classList.add('light-mode');
