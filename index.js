@@ -102,8 +102,20 @@ function getResult(e) {
     display(playerChoice, cpu, result);
 }
 
+function chooseColor(e) {
+    const color = e.target.id;
+
+    const all = document.querySelector('*');
+    all.style.color = color;
+}
+
 const selects = document.querySelectorAll('div.player');
 const resetBtn = document.querySelector('div.button#reset');
+const colors = document.querySelectorAll('div.color');
+
+colors.forEach((color) => {
+    color.addEventListener('click', chooseColor);
+});
 
 selects.forEach((choice) => {
     choice.addEventListener('click', getResult);
