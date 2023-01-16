@@ -12,11 +12,34 @@ body {
 
 header {
     display: flex;
-    
 }
 
 header div#welcome{
     font-size: xx-large;
+}
+
+header div#black {
+    background-color: black;
+    height: 20px;
+    width: 20px;
+}
+
+header div#red {
+    background-color: red;
+    height: 20px;
+    width: 20px;
+}
+
+header div#blue {
+    background-color: blue;
+    height: 20px;
+    width: 20px;
+}
+
+header div#green {
+    background-color: green;
+    height: 20px;
+    width: 20px;
 }
 
 .container {
