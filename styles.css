@@ -92,7 +92,7 @@ main div#board {
     font-size: 80px;
     display: flex;
     justify-content: space-between;
-    margin-top: 100px;
+    margin-top: 25px;
 }
 
 main div#player {
