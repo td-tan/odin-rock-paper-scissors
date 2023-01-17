@@ -127,7 +127,14 @@ div.player {
 
 div.player:hover {
     cursor: pointer;
+}
+
+.border-white {
     border-color: white;
+}
+
+.border-black {
+    border-color: black;
 }
 
 div.button#reset {
