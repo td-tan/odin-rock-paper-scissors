@@ -163,6 +163,18 @@ colors.forEach((color) => {
 
 selects.forEach((choice) => {
     choice.addEventListener('click', getResult);
+    choice.addEventListener('mouseover', (e) => {
+        if(e.target.parentNode.classList.contains('light-mode')) {
+            e.target.className = 'player';
+            e.target.classList.add('border-white');
+        } else {
+            e.target.className = 'player'; 
+            e.target.classList.add('border-black');
+        }
+    });
+    choice.addEventListener('mouseout', (e) => {
+        e.target.className = 'player';
+    });
 });
 
 mode.addEventListener('click', changeMode);
