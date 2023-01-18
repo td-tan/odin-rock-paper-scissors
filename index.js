@@ -129,43 +129,35 @@ function chooseColor(e) {
     body.classList.add(color);
 }
 
+function toggleMode(e, prev_mode, new_mode, prev_fontColor, new_fontColor) {
+    const body = document.querySelector('body');
+    const container = document.querySelector('div.container');
+    const color = document.querySelector(`div.color#${prev_fontColor}`);
+    const githubIcon = document.querySelector('img#github-profile');
+
+    e.target.parentNode.classList.remove(prev_mode);
+    e.target.parentNode.classList.add(new_mode);
+    if (prev_mode === 'night') {
+        e.target.src = 'resources/brightness.png';
+        githubIcon.src = 'resources/github-mark-white.png';
+    } else {
+        e.target.src = 'resources/moon.png';
+        githubIcon.src = 'resources/github-mark.png';
+    }
+
+    container.classList.remove(`${new_mode}-mode`);
+    container.classList.add(`${prev_mode}-mode`);
+    body.className = '';
+    body.classList.add(`${prev_mode}-mode`);
+    body.classList.add(new_fontColor);
+    color.setAttribute('id', new_fontColor);
+}
+
 function changeMode(e) {
     if (e.target.parentNode.classList.contains('night')) {
-        e.target.parentNode.classList.remove('night');
-        e.target.parentNode.classList.add('light');
-        e.target.src = 'resources/brightness.png';
-
-        const body = document.querySelector('body');
-        const container = document.querySelector('div.container');
-        const colorBlack = document.querySelector('div.color#black');
-        const githubIcon = document.querySelector('img#github-profile');
-
-        githubIcon.src = 'resources/github-mark-white.png';
-
-        container.classList.remove('light-mode');
-        container.classList.add('night-mode');
-        body.className = '';
-        body.classList.add('night-mode');
-        body.classList.add('white');
-        colorBlack.setAttribute('id', 'white');
+        toggleMode(e, 'night', 'light', 'black', 'white');
     } else {
-        e.target.parentNode.classList.remove('light');
-        e.target.parentNode.classList.add('night');
-        e.target.src = 'resources/moon.png';
-
-        const body = document.querySelector('body');
-        const container = document.querySelector('div.container');
-        const colorWhite = document.querySelector('div.color#white');
-        const githubIcon = document.querySelector('img#github-profile');
-
-        githubIcon.src = 'resources/github-mark.png';
-
-        container.classList.remove('night-mode');
-        container.classList.add('light-mode');
-        body.className = '';
-        body.classList.add('light-mode');
-        body.classList.add('black');
-        colorWhite.setAttribute('id', 'black');
+        toggleMode(e, 'light', 'night', 'white', 'black');
     }
 }
 
