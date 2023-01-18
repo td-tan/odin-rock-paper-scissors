@@ -46,6 +46,12 @@ function resetGame() {
 
     output.className = '';
     output.textContent = '';
+
+    const selects = document.querySelectorAll('div.player');
+        
+    selects.forEach((select) => {
+        select.classList.remove('disabled');
+    });
 }
 
 function display(player, cpu, result) {
@@ -68,6 +74,12 @@ function display(player, cpu, result) {
             output.classList.add('red');
             output.textContent = 'Go back to training! You are losing against a bot';
         }
+
+        const selects = document.querySelectorAll('div.player');
+        
+        selects.forEach((select) => {
+            select.classList.add('disabled');
+        });
 
         setTimeout(resetGame, 3000);
         return;
