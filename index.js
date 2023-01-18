@@ -78,6 +78,7 @@ function display(player, cpu, result) {
         const selects = document.querySelectorAll('div.player');
         
         selects.forEach((select) => {
+            select.className = 'player';
             select.classList.add('disabled');
         });
 
@@ -180,6 +181,9 @@ colors.forEach((color) => {
 selects.forEach((choice) => {
     choice.addEventListener('click', getResult);
     choice.addEventListener('mouseover', (e) => {
+        if (e.target.classList.contains('disabled')) {
+            return;
+        }
         if(e.target.parentNode.classList.contains('light-mode')) {
             e.target.className = 'player';
             e.target.classList.add('border-white');
@@ -189,6 +193,9 @@ selects.forEach((choice) => {
         }
     });
     choice.addEventListener('mouseout', (e) => {
+        if (e.target.classList.contains('disabled')) {
+            return;
+        }
         e.target.className = 'player';
     });
 });
