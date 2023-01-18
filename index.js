@@ -65,7 +65,7 @@ function display(player, cpu, result) {
             output.textContent = 'Go back to training! You are losing against a bot';
         }
 
-        resetGame();
+        setTimeout(resetGame, 3000);
         return;
     }
 
