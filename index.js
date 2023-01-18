@@ -44,6 +44,7 @@ function resetGame() {
     playerChoice.textContent = '?';
     cpuChoice.textContent = '?';
 
+    output.className = '';
     output.textContent = '';
 }
 
@@ -58,10 +59,13 @@ function display(player, cpu, result) {
 
     if (game.rounds == 0) {
         if(game.playerPoints > game.cpuPoints) {
+            output.classList.add('green');
             output.textContent = 'Congratulations! You won against a bot in 5 Rounds';
         } else if (game.playerPoints === game.cpuPoints) {
+            output.classList.add('blue');
             output.textContent = 'Congratulations! That is a draw';
         } else {
+            output.classList.add('red');
             output.textContent = 'Go back to training! You are losing against a bot';
         }
 
