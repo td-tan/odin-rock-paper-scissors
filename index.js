@@ -129,7 +129,7 @@ function chooseColor(e) {
     body.classList.add(color);
 }
 
-function toggleMode(e, prev_mode, new_mode, prev_fontColor, new_fontColor) {
+function setMode(e, prev_mode, new_mode, prev_fontColor, new_fontColor) {
     const body = document.querySelector('body');
     const container = document.querySelector('div.container');
     const color = document.querySelector(`div.color#${prev_fontColor}`);
@@ -153,11 +153,11 @@ function toggleMode(e, prev_mode, new_mode, prev_fontColor, new_fontColor) {
     color.setAttribute('id', new_fontColor);
 }
 
-function changeMode(e) {
+function toggleMode(e) {
     if (e.target.parentNode.classList.contains('night')) {
-        toggleMode(e, 'night', 'light', 'black', 'white');
+        setMode(e, 'night', 'light', 'black', 'white');
     } else {
-        toggleMode(e, 'light', 'night', 'white', 'black');
+        setMode(e, 'light', 'night', 'white', 'black');
     }
 }
 
@@ -192,6 +192,6 @@ selects.forEach((choice) => {
     });
 });
 
-mode.addEventListener('click', changeMode);
+mode.addEventListener('click', toggleMode);
 
 resetBtn.addEventListener('click', resetGame);
